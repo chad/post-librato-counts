@@ -18,7 +18,7 @@ incr metricName frequency = do
     then flushAndReset newCount
     else put newCount
   return entries
-  where flushAndReset c = do { lift $ postMetric metricName c; put 0} -- this is where we will push to librato instead
+  where flushAndReset c = do { lift $ postMetric metricName c; put 0}
  
 postMetric :: Metric -> Count -> IO ()
 postMetric metricName count = do
