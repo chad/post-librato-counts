@@ -27,7 +27,7 @@ postMetric metricName count = do
        print =<< withManager (httpLbs request)
        where roundedTime = round <$> getPOSIXTime
 
-libratoRequest :: Monad m => Integer -> Count -> Metric -> IO (Request m)
+libratoRequest :: Integer -> Count -> Metric -> IO Request
 libratoRequest time count metricName = urlEncodedBody  headers <$> authed <$> parsedUrl
     where parsedUrl = parseUrl "http://metrics-api.librato.com/v1/metrics"
           authed =  applyBasicAuth (BS.pack "backend@6wunderkinder.com") (BS.pack "e20d6808e6c5a65d49b567421ab3713d8ebcae03f0b54afa38c190807f4b36f1")
