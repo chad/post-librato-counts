@@ -34,4 +34,4 @@ libratoRequest time count metricName = urlEncodedBody  headers <$> authed <$> pa
           headers = [("counters[0][value]", BS.pack $ show count), ("measure_time", BS.pack $ show time), ("counters[0][name]", BS.pack metricName)]
 
 roundedTime :: IO Integer
-roundedTime = round `fmap` getPOSIXTime
+roundedTime = round <$> getPOSIXTime
