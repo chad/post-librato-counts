@@ -5,7 +5,7 @@ import Control.Monad.State
 
 incABunch::StateT Integer IO ()
 incABunch = replicateM_ 50 incAndPrintEveryNine
-  where incAndPrintEveryNine = incr "genau" 9
+  where incAndPrintEveryNine = incr "ryan-yes" 9
 
 main ::IO ((), Integer)
 main = runStateT incABunch 0
