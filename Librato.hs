@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Librato where
+module Librato (incr) where
 
 import Control.Monad.State
 import Control.Applicative
