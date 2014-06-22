@@ -30,6 +30,6 @@ postMetric metricName count = do
 libratoRequest :: Integer -> Count -> Metric -> IO Request
 libratoRequest time count metricName = urlEncodedBody  headers <$> authed <$> parsedUrl
     where parsedUrl = parseUrl "http://metrics-api.librato.com/v1/metrics"
-          authed =  applyBasicAuth (BS.pack "backend@6wunderkinder.com") (BS.pack "e20d6808e6c5a65d49b567421ab3713d8ebcae03f0b54afa38c190807f4b36f1")
+          authed =  applyBasicAuth (BS.pack "LUSER") (BS.pack "PASS")
           headers = [("counters[0][value]", BS.pack $ show count), ("measure_time", BS.pack $ show time), ("counters[0][name]", BS.pack metricName)]
 
